@@ -14,7 +14,6 @@ app.post("/webhook", async (req, res) => {
     try 
     {
         const { sender, payload } = req.body;
-        console.log(`Received message from ${sender}: ${message}`);
 
         // Kirim ke API WazapBro
         const response = await axios.post(WAZAPBRO_API_URL, {
