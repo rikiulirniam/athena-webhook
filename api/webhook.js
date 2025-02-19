@@ -20,7 +20,7 @@ export default async function handler(req, res) {
             recipient: sender.phone,
             message: payload.text
         }, {
-            headers: { Authorization: `Bearer ${WAZAPBRO_TOKEN}` }
+            headers: { Token: `${WAZAPBRO_TOKEN}` }
         });
 
         console.log("Response from WazapBro:", response.data);
