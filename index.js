@@ -7,6 +7,8 @@
     const app = express();
     app.use(express.json()); 
 
+    app.get("/", (req, res) => res.send("Webhook"));
+
     app.post("/webhook", async (req, res) => {
         if (req.method !== "POST") {
             return res.status(405).json({ success: false, error: "Method Not Allowed" });
@@ -44,7 +46,9 @@
         }
     });
 
-    const PORT = process.env.PORT || 3019;
+    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
-        console.log(`Webhook server berjalan di http://localhost:${PORT}`);
+        console.log(`Webhook server berjalan di port ${PORT}`);
     });
+
+    module.exports = app;
